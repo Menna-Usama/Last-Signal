@@ -53,8 +53,10 @@ public class Dash : MonoBehaviour
         _rb.gravityScale = 0f;
         _rb.linearVelocity = new Vector2(transform.localScale.x * _dashingPower, 0f);
         yield return new WaitForSeconds(_dashingTime);
+
         _rb.gravityScale = originalGravity;
         isDashing = false;
+
         yield return new WaitForSeconds(_dashingCooldown);
         canDash = true;
     }
