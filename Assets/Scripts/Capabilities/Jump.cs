@@ -1,8 +1,10 @@
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Controller))]
 public class Jump : MonoBehaviour
 {
+    public static event Action OnPlayerJumped;
 
     [SerializeField, Range(0f, 10f)] private float _jumpHeight = 3f;
     [SerializeField, Range(0, 5)] private int _maxAirJumps = 0;
@@ -84,6 +86,8 @@ public class Jump : MonoBehaviour
                 _jumpSpeed += Mathf.Abs(_rb.linearVelocity.y);
             }
             _velocity.y += _jumpSpeed;
+
+            OnPlayerJumped?.Invoke();
         }
     }
 }

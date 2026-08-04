@@ -9,6 +9,9 @@ public class MovingPlatform : MonoBehaviour
 
     private Vector3 _nextPosition;
 
+    private Vector3 _lastPosition;
+    private Transform _player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,11 +29,23 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+
+    private void LateUpdate()
+    {
+        Vector3 delta = transform.position - _lastPosition;
+        if (_player != null)
+        {
+            _player.position += delta;
+        }
+
+        _lastPosition = transform.position;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.parent = transform;
+            _player = collision.transform;
         }
     }
 
@@ -38,7 +53,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.parent = null;
+            _player = null;
         }
     }
 
