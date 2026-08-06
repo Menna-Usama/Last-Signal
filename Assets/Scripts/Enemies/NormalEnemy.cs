@@ -66,7 +66,7 @@ public class NormalEnemy : MonoBehaviour
         {
             GameObject proj = Instantiate(_enemyProjectile, transform.position, Quaternion.identity);
             Projectile projScript = proj.GetComponentInChildren<Projectile>();
-            Debug.Log(projScript == null ? "Projectile script missing on prefab!" : "Found it");
+            //Debug.Log(projScript == null ? "Projectile script missing on prefab!" : "Found it");
             projScript.Launch(direction, travelDistance);
             Physics2D.IgnoreCollision(proj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             // Projectile is the script on the enemies projectile, launch is a func in it
@@ -103,6 +103,7 @@ public class NormalEnemy : MonoBehaviour
     private void EnemyDefeated()
     {
         StopAllCoroutines();
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject); //because logic is child of the empty enemy parent
+
     }
 }

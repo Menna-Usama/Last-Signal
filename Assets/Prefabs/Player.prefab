@@ -86,8 +86,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -874393747
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aada590202c3d1f4599f0dcec0ba25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Move
-  _maxSpeed: 4
+  _maxSpeed: 6
   _maxAcceleration: 35
-  _maxAirAcceleration: 20
+  _maxAirAcceleration: 25
 --- !u!114 &4845856575666607697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,9 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8155e8522d14db840b8ea17a4e301889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Jump
-  _jumpHeight: 5.29
-  _maxAirJumps: 0
-  _downwardMovementMultiplier: 3
+  _jumpHeight: 6
+  _maxAirJumps: 1
+  _downwardMovementMultiplier: 4
   _upwardMovementMultiplier: 1.7
 --- !u!114 &6850359758624698073
 MonoBehaviour:
@@ -242,8 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb588a3a8cff24780b29a2cc6d3869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dash
-  _dashingPower: 15
-  _dashingTime: 1
+  isDashing: 0
+  _dashingPower: 20
+  _dashingTime: 2
   _dashingCooldown: 1
 --- !u!114 &6985352740545273055
 MonoBehaviour:
