@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 
 public class BlinkingPlatform : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class BlinkingPlatform : MonoBehaviour
     private bool _isBlinking;
 
     private Rigidbody2D _rb;
-    private SpriteRenderer _sr;
+    private TilemapRenderer _tr;
     private Collider2D _platformCollider;
 
 
@@ -19,7 +21,7 @@ public class BlinkingPlatform : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _platformCollider = GetComponent<Collider2D>();
-        _sr = GetComponent<SpriteRenderer>();
+        _tr = GetComponent<TilemapRenderer>();
     }
 
 
@@ -36,11 +38,11 @@ public class BlinkingPlatform : MonoBehaviour
         _isBlinking = true;
         yield return new WaitForSeconds(_blinkWait);
         _platformCollider.enabled = false;
-        _sr.enabled = false;
+        _tr.enabled = false;
 
         yield return new WaitForSeconds(_appearWait);
         _platformCollider.enabled = true;
-        _sr.enabled = true;
+        _tr.enabled = true;
         _isBlinking = false;
     }
 

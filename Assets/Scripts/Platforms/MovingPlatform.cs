@@ -2,33 +2,32 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-
-    public Transform pointA;
-    public Transform pointB;
+    public Vector3 moveOffset = new Vector3(3f, 0f, 0f); // how far, and in what direction, to travel
     public float moveSpeed = 2f;
 
+    private Vector3 _pointA;
+    private Vector3 _pointB;
     private Vector3 _nextPosition;
 
     private Vector3 _lastPosition;
     private Transform _player;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _nextPosition = pointB.position;
+        _pointA = transform.position;
+        _pointB = transform.position + moveOffset;
+        _nextPosition = _pointB;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _nextPosition, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, _nextPosition) < 0.01f)
         {
-            _nextPosition = (_nextPosition == pointA.position) ? pointB.position : pointA.position;
+            _nextPosition = (_nextPosition == _pointA) ? _pointB : _pointA;
         }
     }
-
 
     private void LateUpdate()
     {
@@ -56,5 +55,4 @@ public class MovingPlatform : MonoBehaviour
             _player = null;
         }
     }
-
 }
