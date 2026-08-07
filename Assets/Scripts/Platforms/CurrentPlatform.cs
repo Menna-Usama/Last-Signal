@@ -4,7 +4,7 @@ public class CurrentPlatform : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlatformController platform = collision.gameObject.GetComponent<PlatformController>();
+        PlatformGroupController platform = collision.gameObject.GetComponentInParent<PlatformGroupController>();
 
         if (platform != null)
         {
@@ -14,7 +14,7 @@ public class CurrentPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        PlatformController platform = collision.gameObject.GetComponent<PlatformController>();
+        PlatformGroupController platform = collision.gameObject.GetComponentInParent<PlatformGroupController>();
 
         if (platform != null && PlatformManager.Instance.CurrentPlatform == platform)
         {

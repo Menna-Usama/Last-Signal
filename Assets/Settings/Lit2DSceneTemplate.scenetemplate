@@ -64,6 +64,8 @@ MonoBehaviour:
     the 2D Renderer in Universal RP.
   preview: {fileID: -3604256930052969394}
   dependencies:
+  - dependency: {fileID: 11400000, guid: 9c684a6523d257b49959d54078dc4cb6, type: 2}
+    instantiationMode: 1
   - dependency: {fileID: 11400000, guid: 660c6065852f1734e89e4978f82fa9f0, type: 2}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 67c05e740450c5f4186119bceca65100, type: 3}
@@ -76,8 +78,6 @@ MonoBehaviour:
     instantiationMode: 1
   - dependency: {fileID: 11400000, guid: 137da8501ee3b234b9266b1c7ecf2bfe, type: 2}
     instantiationMode: 1
-  - dependency: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
-    instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 11400000, guid: 9fcfe9e1d3726bb4299b16e46c4e61b2, type: 2}
@@ -96,16 +96,14 @@ MonoBehaviour:
     instantiationMode: 1
   - dependency: {fileID: 11400000, guid: 6856b7d739a90214badc864bcb4cad6f, type: 2}
     instantiationMode: 1
-  - dependency: {fileID: 6217411350277017860, guid: 36fcec7f667fbad4db513159a0e8c69f, type: 3}
-    instantiationMode: 0
   - dependency: {fileID: 11400000, guid: 6b468778cb9996e4ba440779525e22ef, type: 2}
-    instantiationMode: 1
-  - dependency: {fileID: 11400000, guid: 4ac889e9a25e39749bc5693f5eee98fa, type: 2}
-    instantiationMode: 1
-  - dependency: {fileID: 11400000, guid: 44bea0a916a3f484f8de6b322b9a2350, type: 2}
     instantiationMode: 1
   - dependency: {fileID: 4578585310845832427, guid: a6e19722f2de0e44d94a29b97905a669, type: 3}
     instantiationMode: 0
+  - dependency: {fileID: 11400000, guid: 44bea0a916a3f484f8de6b322b9a2350, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 11400000, guid: 4ac889e9a25e39749bc5693f5eee98fa, type: 2}
+    instantiationMode: 1
   - dependency: {fileID: 8828773854810992037, guid: cc5e6157c9c0c5b4fb9a8ce20e7c3ca9, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 11400000, guid: e3e52f9b1c037254980173a7d0dca037, type: 2}

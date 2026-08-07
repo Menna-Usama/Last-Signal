@@ -4,14 +4,8 @@ using UnityEngine;
 public class PlatformManager : MonoBehaviour
 {
     public static PlatformManager Instance { get; private set; }
-    private readonly List<PlatformController> platforms = new();
-    public PlatformController CurrentPlatform { get; set; }
-
-    [Header("Platform Prefabs")]
-    [SerializeField] private GameObject normalPrefab;
-    [SerializeField] private GameObject movingPrefab;
-    [SerializeField] private GameObject blinkingPrefab;
-
+    private readonly List<PlatformGroupController> platforms = new();
+    public PlatformGroupController CurrentPlatform { get; set; }
 
 
     private void Awake()
@@ -34,40 +28,24 @@ public class PlatformManager : MonoBehaviour
 
 
 
-    public void Register(PlatformController platform)
+    public void Register(PlatformGroupController platform)
     {
         if (!platforms.Contains(platform))
             platforms.Add(platform);
     }
-    public void Unregister(PlatformController platform)
+    public void Unregister(PlatformGroupController platform)
     {
         platforms.Remove(platform);
     }
 
 
-    public GameObject GetNextPrefab(PlatformType type)
-    {
-        switch (type)
-        {
-            case PlatformType.Normal:
-                return movingPrefab;
-
-            case PlatformType.Moving:
-                return blinkingPrefab;
-
-            default:
-                return normalPrefab;
-        }
-    }
-
-
     private void CyclePlatforms()
     {
-        List<PlatformController> copy = new List<PlatformController>(platforms);
+        List<PlatformGroupController> copy = new List<PlatformGroupController>(platforms);
 
-        foreach (PlatformController platform in copy)
+        foreach (PlatformGroupController platform in copy)
         {
-            if (platform != null && platform != CurrentPlatform)
+            if (platform != null)//&& platform != CurrentPlatform used to be here but it exempts the whole platform type not an individual platform
             {
                 platform.Cycle();
             }
