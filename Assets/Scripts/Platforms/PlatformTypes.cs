@@ -2,5 +2,6 @@ public enum PlatformType
 {
     Normal,
     Moving,
-    Blinking
+    Blinking,
+    Falling
 }

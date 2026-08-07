@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlatformController : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class PlatformController : MonoBehaviour
 
             case PlatformType.Moving:
                 return PlatformType.Blinking;
+
+            case PlatformType.Blinking:
+                return PlatformType.Falling;
 
             default:
                 return PlatformType.Normal;
