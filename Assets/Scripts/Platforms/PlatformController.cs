@@ -4,6 +4,7 @@ public class PlatformController : MonoBehaviour
 {
 
     [SerializeField] private PlatformType platformType;
+    [SerializeField] private PlatformFamily platformFamily;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,16 +15,35 @@ public class PlatformController : MonoBehaviour
     private void OnDestroy()
     {
         if (PlatformManager.Instance != null)
+        {
             PlatformManager.Instance.Unregister(this);
+        }
     }
 
 
     public void Cycle()
     {
-        GameObject nextPrefab = PlatformManager.Instance.GetNextPrefab(platformType);
+        PlatformType nextType = GetNextType();
+
+        GameObject nextPrefab = platformFamily.GetNextPrefab(nextType);
 
         Instantiate(nextPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+
+    private PlatformType GetNextType()
+    {
+        switch (platformType)
+        {
+            case PlatformType.Normal:
+                return PlatformType.Moving;
+
+            case PlatformType.Moving:
+                return PlatformType.Blinking;
+
+            default:
+                return PlatformType.Normal;
+        }
     }
 
 }

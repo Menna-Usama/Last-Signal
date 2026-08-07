@@ -7,10 +7,10 @@ public class PlatformManager : MonoBehaviour
     private readonly List<PlatformController> platforms = new();
     public PlatformController CurrentPlatform { get; set; }
 
-    [Header("Platform Prefabs")]
-    [SerializeField] private GameObject normalPrefab;
-    [SerializeField] private GameObject movingPrefab;
-    [SerializeField] private GameObject blinkingPrefab;
+    //[Header("Platform Prefabs")]
+    //[SerializeField] private GameObject normalPrefab;
+    //[SerializeField] private GameObject movingPrefab;
+    //[SerializeField] private GameObject blinkingPrefab;
 
 
 
@@ -45,20 +45,20 @@ public class PlatformManager : MonoBehaviour
     }
 
 
-    public GameObject GetNextPrefab(PlatformType type)
-    {
-        switch (type)
-        {
-            case PlatformType.Normal:
-                return movingPrefab;
+    //public GameObject GetNextPrefab(PlatformType type)
+    //{
+    //    switch (type)
+    //    {
+    //        case PlatformType.Normal:
+    //            return movingPrefab;
 
-            case PlatformType.Moving:
-                return blinkingPrefab;
+    //        case PlatformType.Moving:
+    //            return blinkingPrefab;
 
-            default:
-                return normalPrefab;
-        }
-    }
+    //        default:
+    //            return normalPrefab;
+    //    }
+    //}
 
 
     private void CyclePlatforms()
