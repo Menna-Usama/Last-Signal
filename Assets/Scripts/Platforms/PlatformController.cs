@@ -7,7 +7,6 @@ public class PlatformController : MonoBehaviour
     [SerializeField] private PlatformType platformType;
     [SerializeField] private PlatformFamily platformFamily;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
