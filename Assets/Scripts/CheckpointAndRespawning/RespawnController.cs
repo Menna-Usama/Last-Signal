@@ -14,13 +14,22 @@ public class RespawnController : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (isDead)
-        {
-            Respawn();
-        }
+        FallDeath.OnPlayerLost += Respawn;
     }
+    private void OnDisable()
+    {
+        FallDeath.OnPlayerLost -= Respawn;
+    }
+
+    //private void Update()
+    //{
+    //    if (isDead)
+    //    {
+    //        Respawn();
+    //    }
+    //}
 
 
     private void Respawn()
