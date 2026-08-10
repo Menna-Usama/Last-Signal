@@ -87,7 +87,10 @@ public class Jump : MonoBehaviour
             }
             _velocity.y += _jumpSpeed;
 
-            OnPlayerJumped?.Invoke();
+            if (_onGround)
+            {
+                OnPlayerJumped?.Invoke();
+            }
         }
     }
 }

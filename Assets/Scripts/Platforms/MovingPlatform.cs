@@ -8,6 +8,7 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 _pointA;
     private Vector3 _pointB;
     private Vector3 _nextPosition;
+    private bool _isInitialized = false;
 
     private Vector3 _lastPosition;
     private Transform _player;
@@ -17,6 +18,23 @@ public class MovingPlatform : MonoBehaviour
         _pointA = transform.position;
         _pointB = transform.position + moveOffset;
         _nextPosition = _pointB;
+    }
+
+    void OnEnable()//so they snap back to the original position each time instead of starting where they were last
+    {
+        float distanceToA = Vector3.Distance(transform.position, _pointA);
+        float distanceToB = Vector3.Distance(transform.position, _pointB);
+        _nextPosition = (distanceToA < distanceToB) ? _pointB : _pointA;
+        //if you're closer to A go to B, and vice versa. To not move out of the the offset
+    }
+
+    public void InOrigin(Vector3 origin)
+    {
+        if (_isInitialized) return;
+        _pointA = origin;
+        _pointB = origin + moveOffset;
+        _isInitialized = true;
+
     }
 
     void Update()

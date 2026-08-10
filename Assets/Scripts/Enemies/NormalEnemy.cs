@@ -8,6 +8,7 @@ public class NormalEnemy : MonoBehaviour
     [SerializeField] private float _horizontalFiringDistance = 4f;
     [SerializeField] private float _verticalFiringDistance = 4f;
     [SerializeField]private float _shootingInterval = 2f;
+    [SerializeField]private float _EnemyknockBackForce = 2f;
 
     [Header("Health")]
     [SerializeField] private int _startingEnemyHealth = 2;
@@ -55,8 +56,10 @@ public class NormalEnemy : MonoBehaviour
     }
     private void FireVerticalPair()
     {
-        SpawnProjectile(Vector2.up, _verticalFiringDistance);
-        //SpawnProjectile(Vector2.down, _verticalFiringDistance); that just hits the platform so it's useless
+        GameObject up = SpawnProjectile(Vector2.up, _verticalFiringDistance);
+        GameObject down = SpawnProjectile(Vector2.down, _verticalFiringDistance);//leave the projectile going down
+        Physics2D.IgnoreCollision(down.GetComponent<Collider2D>(), up.GetComponent<Collider2D>());
+
 
     }
 
@@ -86,6 +89,17 @@ public class NormalEnemy : MonoBehaviour
         if(dash != null && dash.isDashing)
         {
             TakeHit();
+        }
+
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Rigidbody2D playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (playerRB != null)
+            {
+                Vector2 enemyToPlayerDirection = collision.transform.position - transform.position;
+                playerRB.linearVelocity = Vector2.zero;//stop player's movement
+                playerRB.AddForce(enemyToPlayerDirection * _EnemyknockBackForce, ForceMode2D.Impulse);//hit player with knockback
+            }
         }
 
     }
