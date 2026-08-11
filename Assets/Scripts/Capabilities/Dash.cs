@@ -5,7 +5,7 @@ using System.Collections;
 public class Dash : MonoBehaviour
 {
     private bool canDash = true;
-    private bool isDashing;
+    public bool isDashing;
     [SerializeField, Range(0f, 20f)] private float _dashingPower = 10f;
     [SerializeField, Range(0f, 5f)] private float _dashingTime = 0.2f;
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;

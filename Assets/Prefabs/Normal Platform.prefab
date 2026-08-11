@@ -201,4 +201,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformController
   platformType: 0
-  platformFamily: {fileID: 11400000, guid: e387ce7ea27fc31429790a3243aa5277, type: 2}
