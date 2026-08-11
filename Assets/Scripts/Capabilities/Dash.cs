@@ -10,8 +10,11 @@ public class Dash : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float _dashingTime = 0.2f;
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;
 
+    private float _direction;
+
     private Controller _controller;
     private Rigidbody2D _rb;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,9 +52,15 @@ public class Dash : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+
         float originalGravity = _rb.gravityScale;
         _rb.gravityScale = 0f;
-        _rb.linearVelocity = new Vector2(transform.localScale.x * _dashingPower, 0f);
+
+        _direction = Input.GetAxisRaw("Horizontal");
+        if (_direction == 0) _direction = transform.localScale.x > 0 ? 1 : -1; // calculating the dash direction.
+
+        _rb.AddForce(Vector2.right * _direction * _dashingPower, ForceMode2D.Impulse); // default: dash to right.
+
         yield return new WaitForSeconds(_dashingTime);
 
         _rb.gravityScale = originalGravity;

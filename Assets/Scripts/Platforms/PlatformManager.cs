@@ -20,10 +20,12 @@ public class PlatformManager : MonoBehaviour
     private void OnEnable()
     {
         Jump.OnPlayerJumped += CyclePlatforms;
+        GuardianJump.OnGuardianJump += CyclePlatforms;
     }
     private void OnDisable()
     {
         Jump.OnPlayerJumped -= CyclePlatforms;
+        GuardianJump.OnGuardianJump -= CyclePlatforms;
     }
 
 
