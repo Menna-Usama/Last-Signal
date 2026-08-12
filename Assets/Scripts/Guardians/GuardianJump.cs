@@ -6,7 +6,7 @@ public class GuardianJump : MonoBehaviour
 {
     [SerializeField] private float jumpHeight = 3f;
     [SerializeField] private float jumpDuration = 1f;
-    [SerializeField] private float waitForJump = 3f;
+    [SerializeField] private int waitForJump;
     private Rigidbody2D rb;
 
     public static event Action OnGuardianJump;
@@ -42,12 +42,13 @@ public class GuardianJump : MonoBehaviour
     {
         while (true)
         {
+            waitForJump = UnityEngine.Random.Range(3, 11);
             yield return new WaitForSeconds(waitForJump);
-            yield return StartCoroutine(Jump());
+            yield return StartCoroutine(Jump(Vector2.up));
         }
     }
 
-    private IEnumerator Jump()
+    public IEnumerator Jump(Vector2 dir)
     {
         OnGuardianJump?.Invoke();
 
@@ -60,7 +61,7 @@ public class GuardianJump : MonoBehaviour
             float t = elapsed / jumpDuration;
             float height = Mathf.Sin(t * Mathf.PI) * jumpHeight;
 
-            rb.MovePosition(startPosition + Vector2.up * height);
+            rb.MovePosition(startPosition + dir * height);
             yield return new WaitForFixedUpdate();
         }
 
