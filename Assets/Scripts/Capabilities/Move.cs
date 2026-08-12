@@ -10,7 +10,10 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 20f;
 
     private Controller _controller;
-    private Vector2 _direction, _desiredVelocity, _velocity;
+    private Vector2 _direction, _desiredVelocity, velocity;
+    public Vector2 Velocity => velocity;
+    public Vector2 direction => _direction;
+
     private Rigidbody2D _rb;
     private Ground _ground;
 
@@ -35,12 +38,12 @@ public class Move : MonoBehaviour
     private void FixedUpdate()
     {
         _onGround = _ground.OnGround;
-        _velocity = _rb.linearVelocity;
+        velocity = _rb.linearVelocity;
 
         _acceleration = _onGround ? _maxAcceleration : _maxAirAcceleration;
         _maxSpeedChange = _acceleration * Time.deltaTime;
-        _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
+        velocity.x = Mathf.MoveTowards(velocity.x, _desiredVelocity.x, _maxSpeedChange);
 
-        _rb.linearVelocity = _velocity;
+        _rb.linearVelocity = velocity;
     }
 }

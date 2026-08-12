@@ -15,11 +15,14 @@ public class Jump : MonoBehaviour
     private Rigidbody2D _rb;
     private Ground _ground;
     private Vector2 _velocity;
+    public Vector2 Velocity => _velocity;
 
     private int _jumpPhase;
     private float _defaultGravityScale, _jumpSpeed;
 
     private bool _desiredJump, _onGround;
+    public bool OnGround => _onGround;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()

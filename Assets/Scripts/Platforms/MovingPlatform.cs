@@ -2,33 +2,50 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-
-    public Transform pointA;
-    public Transform pointB;
+    public Vector3 moveOffset = new Vector3(3f, 0f, 0f); // how far, and in what direction, to travel
     public float moveSpeed = 2f;
 
+    private Vector3 _pointA;
+    private Vector3 _pointB;
     private Vector3 _nextPosition;
+    private bool _isInitialized = false;
 
     private Vector3 _lastPosition;
     private Transform _player;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _nextPosition = pointB.position;
+        _pointA = transform.position;
+        _pointB = transform.position + moveOffset;
+        _nextPosition = _pointB;
     }
 
-    // Update is called once per frame
+    void OnEnable()//so they snap back to the original position each time instead of starting where they were last
+    {
+        float distanceToA = Vector3.Distance(transform.position, _pointA);
+        float distanceToB = Vector3.Distance(transform.position, _pointB);
+        _nextPosition = (distanceToA < distanceToB) ? _pointB : _pointA;
+        //if you're closer to A go to B, and vice versa. To not move out of the the offset
+    }
+
+    public void InOrigin(Vector3 origin)
+    {
+        if (_isInitialized) return;
+        _pointA = origin;
+        _pointB = origin + moveOffset;
+        _isInitialized = true;
+
+    }
+
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _nextPosition, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, _nextPosition) < 0.01f)
         {
-            _nextPosition = (_nextPosition == pointA.position) ? pointB.position : pointA.position;
+            _nextPosition = (_nextPosition == _pointA) ? _pointB : _pointA;
         }
     }
-
 
     private void LateUpdate()
     {
@@ -56,5 +73,4 @@ public class MovingPlatform : MonoBehaviour
             _player = null;
         }
     }
-
 }
