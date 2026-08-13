@@ -9,6 +9,7 @@ TagManager:
   - Guardian
   - Vulnerable
   - Log
+  - SeeGuardian
   layers:
   - Default
   - TransparentFX
