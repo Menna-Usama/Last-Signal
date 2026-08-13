@@ -6,7 +6,7 @@ public class GuardianDeath : MonoBehaviour
 
     [SerializeField] private int guardianHealth = 3;
 
-    private int _hitsTaken;
+    public int _hitsTaken;
     private Vulnerable vulnerableScript;
     public static event Action OnGuardianDefeated;
 
