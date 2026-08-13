@@ -35,6 +35,7 @@ public class FallDeath : MonoBehaviour
             if (fallenDistance > deathDistance)
             {
                 Lose();
+                Debug.Log("player fell and died");
             }
         }
     }

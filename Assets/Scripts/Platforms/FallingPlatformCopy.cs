@@ -13,14 +13,18 @@ public class FallingPlatformCopy : MonoBehaviour
 
     private Transform _player;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    private void OnEnable()
     {
+        //each time ApplyState gets called on falling, positions are recalculated
         _topPos = transform.position;
         _bottomPos = transform.position + fallOffset;
         _nextPosition = _topPos;
+        _lastPosition = transform.position;
+        _player = null;
     }
+
+
 
     // Update is called once per frame
     void Update()

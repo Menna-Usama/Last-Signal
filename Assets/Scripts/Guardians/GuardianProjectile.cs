@@ -53,7 +53,7 @@ public class GuardianProjectile : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Guardian") || collision.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject);
         }

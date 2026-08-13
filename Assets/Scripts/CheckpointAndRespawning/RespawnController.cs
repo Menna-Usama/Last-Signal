@@ -35,6 +35,10 @@ public class RespawnController : MonoBehaviour
     private void Respawn()
     {
         player.transform.position = respawnPoint.position;
+
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = Vector2.zero;//added these two line to make sure player doesn't retain velocity when respawning
+
         isDead = false;
     }
 

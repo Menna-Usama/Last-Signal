@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6588442940875593913}
   m_Layer: 0
   m_Name: Guardian Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea33932dd188f440855f5f1caea8375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianProjectile
-  _projectileSpd: 7
-  _knockBackForce: 10
+  _projectileSpd: 5
+  _knockBackForce: 20
 --- !u!50 &3404979647162783998
 Rigidbody2D:
   serializedVersion: 5
