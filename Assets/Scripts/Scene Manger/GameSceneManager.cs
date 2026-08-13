@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager Instance;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject PauseMenuPanel;
+    [SerializeField] private GameObject DeathMenuPanel;
 
     private void Awake()
     {
@@ -17,8 +21,22 @@ public class GameSceneManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#else
+            
+            Application.Quit();
+#endif
+    }
 
-
+    public void StartGame()
+    {
+        SceneManager.GetActiveScene();
+        mainMenuPanel.SetActive(false);
+        Debug.Log("Pressed play");
+    }
 
     public void LoadScene(string sceneName)
     {
@@ -28,6 +46,7 @@ public class GameSceneManager : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PauseMenuPanel.SetActive(false);
     }
 
 
