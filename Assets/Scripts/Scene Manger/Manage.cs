@@ -16,5 +16,10 @@ public class Manage : MonoBehaviour
         {
             GameSceneManager.Instance.LoadNextScene();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameSceneManager.Instance.LoadScene("PauseMenu");
+        }
     }
 }

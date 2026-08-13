@@ -10,10 +10,11 @@ public class Dash : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float _dashingTime = 0.2f;
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;
 
-    private float _direction;
+    private float _lastDirection;
 
     private Controller _controller;
     private Rigidbody2D _rb;
+    private TrailRenderer _trail;
 
 
 
@@ -22,6 +23,7 @@ public class Dash : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _controller = GetComponent<Controller>();
+        _trail = GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,13 @@ public class Dash : MonoBehaviour
         if (isDashing)
         {
             return;
+        }
+
+        float inputDirection = Input.GetAxisRaw("Horizontal");
+
+        if (inputDirection != 0)
+        {
+            _lastDirection = inputDirection;
         }
 
 
@@ -56,12 +65,16 @@ public class Dash : MonoBehaviour
         float originalGravity = _rb.gravityScale;
         _rb.gravityScale = 0f;
 
-        _direction = Input.GetAxisRaw("Horizontal");
-        if (_direction == 0) _direction = transform.localScale.x > 0 ? 1 : -1; // calculating the dash direction.
+        _trail.emitting = true;
 
-        _rb.AddForce(Vector2.right * _direction * _dashingPower, ForceMode2D.Impulse); // default: dash to right.
+        //_direction = Input.GetAxisRaw("Horizontal");
+        //if (_direction == 0) _direction = transform.localScale.x > 0 ? 1 : -1; // calculating the dash direction.
+
+        _rb.AddForce(Vector2.right * _lastDirection * _dashingPower, ForceMode2D.Impulse); // default: dash to right.
 
         yield return new WaitForSeconds(_dashingTime);
+
+        _trail.emitting = false;
 
         _rb.gravityScale = originalGravity;
         isDashing = false;
