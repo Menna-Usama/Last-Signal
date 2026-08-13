@@ -1603,9 +1603,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 197569503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d0db98f8948d2419fb114b1fd970fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states:
+  - type: 0
+    stateObject: {fileID: 1257049259}
+  - type: 1
+    stateObject: {fileID: 2098738006}
+  - type: 2
+    stateObject: {fileID: 1464470666}
+  currentIndex: 1
 --- !u!114 &299952516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45089,9 +45097,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 902302226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d0db98f8948d2419fb114b1fd970fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states:
+  - type: 0
+    stateObject: {fileID: 726893116}
+  - type: 1
+    stateObject: {fileID: 311889400}
+  - type: 2
+    stateObject: {fileID: 1973614673}
+  currentIndex: 2
 --- !u!114 &903865249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95597,9 +95613,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1723523317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d0db98f8948d2419fb114b1fd970fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states:
+  - type: 0
+    stateObject: {fileID: 68646040}
+  - type: 1
+    stateObject: {fileID: 950624856}
+  - type: 2
+    stateObject: {fileID: 1065355134}
+  currentIndex: 0
 --- !u!114 &1765808802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95825,10 +95849,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 5.625}
+  m_Size: {x: 48, y: 27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!4 &1913925293
@@ -106025,6 +106049,10 @@ PrefabInstance:
     - target: {fileID: 5226948979827827957, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
       propertyPath: m_Name
       value: StaticTiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226948979827827957, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5848625318923541327, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
       propertyPath: m_LocalPosition.x

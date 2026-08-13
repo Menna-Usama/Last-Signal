@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 
 public class BlinkingPlatform : MonoBehaviour
 {
@@ -9,17 +11,18 @@ public class BlinkingPlatform : MonoBehaviour
 
     private bool _isBlinking;
 
-    private Rigidbody2D _rb;
-    private SpriteRenderer _sr;
+    //private Rigidbody2D _rb;
+    private TilemapRenderer _tr;
     private Collider2D _platformCollider;
+    private Coroutine _BlinkRoutine;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        //_rb = GetComponent<Rigidbody2D>(); rigid body not used anywhere
         _platformCollider = GetComponent<Collider2D>();
-        _sr = GetComponent<SpriteRenderer>();
+        _tr = GetComponent<TilemapRenderer>();
     }
 
 
@@ -27,7 +30,7 @@ public class BlinkingPlatform : MonoBehaviour
     {
         if (!_isBlinking && collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(Blink());
+            _BlinkRoutine = StartCoroutine(Blink());
         }
     }
 
@@ -36,15 +39,22 @@ public class BlinkingPlatform : MonoBehaviour
         _isBlinking = true;
         yield return new WaitForSeconds(_blinkWait);
         _platformCollider.enabled = false;
-        _sr.enabled = false;
+        _tr.enabled = false;
 
         yield return new WaitForSeconds(_appearWait);
         _platformCollider.enabled = true;
-        _sr.enabled = true;
+        _tr.enabled = true;
         _isBlinking = false;
+        _BlinkRoutine = null;
     }
 
 
-
+    private void OnEnable()
+    {
+        _isBlinking = false;
+        _BlinkRoutine = null;
+        _tr.enabled = true;
+        _platformCollider.enabled = true;
+    }
 
 }
