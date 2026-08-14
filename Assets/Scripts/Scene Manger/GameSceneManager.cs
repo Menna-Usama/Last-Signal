@@ -75,5 +75,10 @@ public class GameSceneManager : MonoBehaviour
         PauseMenuPanel.SetActive(false) ;
         ControlsPanel.SetActive(true);
     }
+    public void BackButton()
+    {
+        ControlsPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
 
 }
