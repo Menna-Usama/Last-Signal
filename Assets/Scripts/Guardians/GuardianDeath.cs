@@ -12,16 +12,19 @@ public class GuardianDeath : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Awake");
         vulnerableScript = GetComponent<Vulnerable>();
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         Dash dash = collision.gameObject.GetComponent<Dash>();//fetch the Dash script on the player
         if (dash != null && dash.isDashing && vulnerableScript.isVulnerable)
         {
             TakeHit();
+            Debug.Log("Collision");
         }
 
     }

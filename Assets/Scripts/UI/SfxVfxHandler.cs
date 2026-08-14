@@ -71,12 +71,12 @@ public class VFXHandler : MonoBehaviour
     private void PlayShockwave()
     {
         shockWave.Play();
-        StartCoroutine(ParticleStopDelay());
+        //StartCoroutine(ParticleStopDelay());
     }
-    IEnumerator ParticleStopDelay()
-    {
-        yield return new WaitForSeconds(1f);
-        shockWave.Stop();
+    //IEnumerator ParticleStopDelay()
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    shockWave.Stop();
 
-    }
+    //}
 }
