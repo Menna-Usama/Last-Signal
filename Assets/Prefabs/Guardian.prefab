@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1909055375640739456}
   - component: {fileID: 717392009159468290}
   - component: {fileID: 6245413799638722345}
-  - component: {fileID: 8507547238482449814}
   - component: {fileID: 4960674433543085057}
   - component: {fileID: 2331306517460939221}
   m_Layer: 0
@@ -177,7 +176,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282701025132946592}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -223,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d6dba7871c37147bc1cf81a24c8e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianFire
-  _guardianProjectile: {fileID: 0}
+  _guardianProjectile: {fileID: 3038736680577547152, guid: 21e578b4d64f80e4f99a80f3b535b01a, type: 3}
   _horizontalFiringDistance: 6
   _verticalFiringDistance: 6
   _shootingInterval: 0.75
@@ -241,20 +240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GuardianDeath
   guardianHealth: 3
   _hitsTaken: 0
---- !u!114 &8507547238482449814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282701025132946592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea33932dd188f440855f5f1caea8375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GuardianProjectile
-  _projectileSpd: 7
-  _knockBackForce: 10
 --- !u!114 &4960674433543085057
 MonoBehaviour:
   m_ObjectHideFlags: 0

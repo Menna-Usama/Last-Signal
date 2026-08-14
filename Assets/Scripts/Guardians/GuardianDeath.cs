@@ -21,7 +21,7 @@ public class GuardianDeath : MonoBehaviour
     {
         
         Dash dash = collision.gameObject.GetComponent<Dash>();//fetch the Dash script on the player
-        if (dash != null && dash.isDashing && vulnerableScript.isVulnerable)
+        if (dash != null && dash.isDashing)
         {
             TakeHit();
             Debug.Log("Collision");

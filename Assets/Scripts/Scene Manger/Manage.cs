@@ -12,7 +12,7 @@ public class Manage : MonoBehaviour
         //    GameSceneManager.Instance.LoadScene("Win");
         //}
 
-        if (SceneManager.GetActiveScene().buildIndex != 2 && GameObject.FindGameObjectsWithTag("Guardian").Length == 0)
+        if (SceneManager.GetActiveScene().buildIndex != 3 && GameObject.FindGameObjectsWithTag("Guardian").Length == 0)
         {
             GameSceneManager.Instance.LoadNextScene();
         }

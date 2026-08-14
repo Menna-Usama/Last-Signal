@@ -30633,6 +30633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1841500794}
   - component: {fileID: 1841500795}
+  - component: {fileID: 1841500796}
   m_Layer: 0
   m_Name: GameSceneManager
   m_TagString: Untagged
@@ -30672,6 +30673,18 @@ MonoBehaviour:
   DeathMenuPanel: {fileID: 1663801636}
   ControlsPanel: {fileID: 2023409180}
   progressbar: {fileID: 1867997933}
+--- !u!114 &1841500796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841500793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f78d4b3324650242b581cfcc3c3070c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Manage
 --- !u!1 &1843168289
 GameObject:
   m_ObjectHideFlags: 0
@@ -32802,12 +32815,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guardian
       objectReference: {fileID: 0}
-    - target: {fileID: 8507547238482449814, guid: d43c6adc9ab23054ca8a1ab656ab94ed, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8507547238482449814, guid: d43c6adc9ab23054ca8a1ab656ab94ed, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
