@@ -1,2 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Unity-specific files: don't touch line endings
+*.asset -text
+*.meta -text
+*.unity -text
+*.prefab -text
+*.mat -text
+*.asmdef -text
+*.controller -text
+*.anim -text

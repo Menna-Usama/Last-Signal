@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(Controller))]
 public class Dash : MonoBehaviour
 {
+    public static event Action OnPlayerDashed;
     private bool canDash = true;
-    public bool isDashing; //public cus normalenemy uses it
+    public bool isDashing;
+
     [SerializeField, Range(0f, 20f)] private float _dashingPower = 10f;
     [SerializeField, Range(0f, 5f)] private float _dashingTime = 0.2f;
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;
@@ -65,12 +68,14 @@ public class Dash : MonoBehaviour
         float originalGravity = _rb.gravityScale;
         _rb.gravityScale = 0f;
 
+
         _trail.emitting = true;
 
-        //_direction = Input.GetAxisRaw("Horizontal");
-        //if (_direction == 0) _direction = transform.localScale.x > 0 ? 1 : -1; // calculating the dash direction.
+        _rb.AddForce(Vector2.right * _lastDirection * _dashingPower, ForceMode2D.Impulse);
 
-        _rb.AddForce(Vector2.right * _lastDirection * _dashingPower, ForceMode2D.Impulse); // default: dash to right.
+
+        OnPlayerDashed?.Invoke();
+
 
         yield return new WaitForSeconds(_dashingTime);
 

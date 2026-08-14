@@ -7,9 +7,6 @@ TagManager:
   - Platform
   - Ground
   - Guardian
-  - Vulnerable
-  - Log
-  - SeeGuardian
   layers:
   - Default
   - TransparentFX

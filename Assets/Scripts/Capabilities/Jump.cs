@@ -5,6 +5,7 @@ using System;
 public class Jump : MonoBehaviour
 {
     public static event Action OnPlayerJumped;
+    public static event Action OnPlayerLanded;
 
     [SerializeField, Range(0f, 10f)] private float _jumpHeight = 3f;
     [SerializeField, Range(0, 5)] private int _maxAirJumps = 0;
@@ -15,11 +16,14 @@ public class Jump : MonoBehaviour
     private Rigidbody2D _rb;
     private Ground _ground;
     private Vector2 _velocity;
+    public Vector2 Velocity => _velocity;
 
     private int _jumpPhase;
     private float _defaultGravityScale, _jumpSpeed;
 
-    private bool _desiredJump, _onGround;
+    private bool _desiredJump, _onGround, _wasOnGround;
+    public bool OnGround => _onGround;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -39,8 +43,14 @@ public class Jump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _wasOnGround = _onGround;
         _onGround = _ground.OnGround;
         _velocity = _rb.linearVelocity;
+
+        if (_onGround && !_wasOnGround)
+        {
+            OnPlayerLanded?.Invoke();
+        }
 
         if (_onGround)
         {

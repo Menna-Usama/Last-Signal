@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class LogInteract : MonoBehaviour
 {
     private bool isPlayerTouchLog;
-
+    public static event Action onLogInteract;
 
 
     private void Update()
@@ -11,6 +12,8 @@ public class LogInteract : MonoBehaviour
         if(isPlayerTouchLog && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Read Log"); // to be an event connected with the ui manager.
+
+            onLogInteract?.Invoke();
         }
     }
 

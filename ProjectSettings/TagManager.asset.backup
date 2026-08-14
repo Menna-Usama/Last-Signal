@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Platform
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackGround_Distant
+    uniqueID: 2507343255
+    locked: 0
+  - name: BackGround
+    uniqueID: 3402077507
+    locked: 0
+  - name: Enviroment_Decor
+    uniqueID: 3573164765
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Interactables
+    uniqueID: 3420573549
+    locked: 0
+  - name: ForeGround_Decor
+    uniqueID: 1036047219
+    locked: 0
+  - name: VFX
+    uniqueID: 4083994485
+    locked: 0
+  - name: UI
+    uniqueID: 375518081
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []

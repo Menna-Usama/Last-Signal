@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3674b5fcbed3104ba66761f3d701683, type: 3}
+  m_Name: Medium Family
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformFamily
+  prefabs:
+  - type: 0
+    prefab: {fileID: 333393053325004014, guid: f94076fe77f061446ba8bb7885b88c4c, type: 3}
+  - type: 1
+    prefab: {fileID: 1400711603459120420, guid: 02a3858ae4a1a9a4fa791f36385d3da8, type: 3}
+  - type: 2
+    prefab: {fileID: 6217411350277017860, guid: 36fcec7f667fbad4db513159a0e8c69f, type: 3}
+  - type: 3
+    prefab: {fileID: 4693976638478338780, guid: dfe9a95b4d8c2364db379ba5b42fe5ce, type: 3}
