@@ -81804,6 +81804,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1779652060779717549, guid: d26d042577f7b244f89cdbe6b50fb567, type: 3}
   m_PrefabInstance: {fileID: 1159990038}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1360366991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3637200390256509223, guid: e085db06c17224646af4d0c9d206007c, type: 3}
+  m_PrefabInstance: {fileID: 876301325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1405951508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99591,6 +99596,53 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2008926561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008926563}
+  - component: {fileID: 2008926562}
+  m_Layer: 0
+  m_Name: RespawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2008926562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008926561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30092d306c6166c4b8f1d1121f0e8fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnController
+  respawnPoint: {fileID: 262392367}
+  player: {fileID: 1360366991}
+  isDead: 0
+--- !u!4 &2008926563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008926561}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.61541, y: -2.51501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2011267532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110177,3 +110229,4 @@ SceneRoots:
   - {fileID: 98769505}
   - {fileID: 1136818688}
   - {fileID: 588505894}
+  - {fileID: 2008926563}
