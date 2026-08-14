@@ -12,6 +12,7 @@ public class LogInteract : MonoBehaviour
         if(isPlayerTouchLog && Input.GetKeyDown(KeyCode.E))
         {
             onLogInteract?.Invoke();
+            Debug.Log("Interacted");
         }
     }
 

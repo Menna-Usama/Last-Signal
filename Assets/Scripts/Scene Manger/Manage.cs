@@ -9,7 +9,7 @@ public class Manage : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 3 && GameObject.FindGameObjectsWithTag("Guardian").Length == 0)
         {
-            GameSceneManager.Instance.LoadScene("Win");
+            GameSceneManager.Instance.WinPanel.SetActive(true);
         }
 
         if (SceneManager.GetActiveScene().buildIndex != 3 && GameObject.FindGameObjectsWithTag("Guardian").Length == 0)
@@ -19,7 +19,7 @@ public class Manage : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameSceneManager.Instance.LoadScene("PauseMenu");
+            GameSceneManager.Instance.PauseMenuPanel.SetActive(true);
         }
     }
 }

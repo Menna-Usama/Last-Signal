@@ -8,23 +8,22 @@ public class Dash : MonoBehaviour
     public static event Action OnPlayerDashed;
 
     private bool canDash = true;
-    public bool isDashing;
+    public bool isDashing; // public cus normalenemy uses it
     [SerializeField, Range(0f, 20f)] private float _dashingPower = 10f;
     [SerializeField, Range(0f, 5f)] private float _dashingTime = 0.2f;
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;
+    private float _lastDirection = 1f; // defaults to right if player hasn't moved yet
 
     private Controller _controller;
     private Rigidbody2D _rb;
+    [SerializeField] private TrailRenderer _trail;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _controller = GetComponent<Controller>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isDashing)
@@ -32,6 +31,11 @@ public class Dash : MonoBehaviour
             return;
         }
 
+        float inputDirection = Input.GetAxisRaw("Horizontal");
+        if (inputDirection != 0)
+        {
+            _lastDirection = inputDirection;
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
@@ -45,7 +49,6 @@ public class Dash : MonoBehaviour
         {
             return;
         }
-
     }
 
     private IEnumerator ToDash()
@@ -54,12 +57,15 @@ public class Dash : MonoBehaviour
         isDashing = true;
         float originalGravity = _rb.gravityScale;
         _rb.gravityScale = 0f;
-        _rb.linearVelocity = new Vector2(transform.localScale.x * _dashingPower, 0f);
+        _trail.emitting = true;
+
+        _rb.linearVelocity = new Vector2(_lastDirection * _dashingPower, 0f);
 
         OnPlayerDashed?.Invoke();
 
         yield return new WaitForSeconds(_dashingTime);
 
+        _trail.emitting = false;
         _rb.gravityScale = originalGravity;
         isDashing = false;
 
