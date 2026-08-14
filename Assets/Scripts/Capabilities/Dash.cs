@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(Controller))]
 public class Dash : MonoBehaviour
 {
+    public static event Action OnPlayerDashed;
+
     private bool canDash = true;
     public bool isDashing;
     [SerializeField, Range(0f, 20f)] private float _dashingPower = 10f;
@@ -52,6 +55,9 @@ public class Dash : MonoBehaviour
         float originalGravity = _rb.gravityScale;
         _rb.gravityScale = 0f;
         _rb.linearVelocity = new Vector2(transform.localScale.x * _dashingPower, 0f);
+
+        OnPlayerDashed?.Invoke();
+
         yield return new WaitForSeconds(_dashingTime);
 
         _rb.gravityScale = originalGravity;

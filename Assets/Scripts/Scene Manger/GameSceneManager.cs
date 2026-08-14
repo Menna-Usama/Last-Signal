@@ -8,6 +8,12 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject PauseMenuPanel;
     [SerializeField] private GameObject DeathMenuPanel;
+    [SerializeField] private GameObject ControlsPanel;
+    [SerializeField] private GameObject progressbar;
+
+
+    public static event Action onGameStart; 
+
 
     private void Awake()
     {
@@ -35,6 +41,8 @@ public class GameSceneManager : MonoBehaviour
     {
         SceneManager.GetActiveScene();
         mainMenuPanel.SetActive(false);
+        progressbar.SetActive(true);
+        onGameStart?.Invoke();
         Debug.Log("Pressed play");
     }
 
@@ -59,6 +67,13 @@ public class GameSceneManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadControlsPanel()
+    {
+        mainMenuPanel.SetActive(false);
+        PauseMenuPanel.SetActive(false) ;
+        ControlsPanel.SetActive(true);
     }
 
 }
