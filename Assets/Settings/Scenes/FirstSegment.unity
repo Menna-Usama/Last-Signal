@@ -281,8 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664de889ecef1724fbd45a6908b1c53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SegmentBounds
-  startHeight: -9
-  endHeight: 150
+  startHeight: 0
+  endHeight: 159
 --- !u!4 &62921851
 Transform:
   m_ObjectHideFlags: 0
@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2120bbee520eb4e92d92c538f74ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressbarManager
-  towerHeight: 300
+  towerHeight: 567
   segmentStartHeight: 0
   segmentEndHeight: 0
 --- !u!1001 &362645299
@@ -2954,8 +2954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
-  states: []
-  currentIndex: 0
 --- !u!114 &698794978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6737,8 +6735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
-  states: []
-  currentIndex: 0
 --- !u!114 &1714757312
 MonoBehaviour:
   m_ObjectHideFlags: 0

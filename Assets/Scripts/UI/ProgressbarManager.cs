@@ -23,6 +23,7 @@ public class ProgressbarManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     public void SetSegmentRange(float startHeight, float endHeight)
