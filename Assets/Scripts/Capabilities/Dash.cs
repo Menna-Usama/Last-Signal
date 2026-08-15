@@ -14,8 +14,6 @@ public class Dash : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;
     private float _lastDirection = 1f; // defaults to right if player hasn't moved yet
 
-    private float _lastDirection;
-
     private Controller _controller;
     private Rigidbody2D _rb;
     [SerializeField] private TrailRenderer _trail;
