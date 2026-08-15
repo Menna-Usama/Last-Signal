@@ -7,7 +7,7 @@ public class SfxVfxHandler : MonoBehaviour
 {
     [Header("SFX")]
      private AudioSource playerAudioSource;
-     private AudioSource CamAudioSource;
+     public AudioSource CamAudioSource;
 
     [SerializeField] private AudioClip gamePlayTheme;
 

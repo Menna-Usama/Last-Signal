@@ -1,20 +1,22 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager Instance;
+    [SerializeField] private SfxVfxHandler camRef;
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject DeathMenuPanel;
     [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject progressbar;
-    public  GameObject PauseMenuPanel;
+    [SerializeField] private GameObject cutscenePanel;
+    [SerializeField] private VideoPlayer cutsceneVideoPlayer;
+    public GameObject PauseMenuPanel;
     public GameObject WinPanel;
 
-
-    public static event Action onGameStart; 
-
+    public static event Action onGameStart;
 
     private void Awake()
     {
@@ -28,23 +30,54 @@ public class GameSceneManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnEnable()
+    {
+        if (cutsceneVideoPlayer != null)
+        {
+            cutsceneVideoPlayer.loopPointReached += OnCutsceneFinished;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (cutsceneVideoPlayer != null)
+        {
+            cutsceneVideoPlayer.loopPointReached -= OnCutsceneFinished;
+        }
+    }
+
     public void QuitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.ExitPlaymode();
 #else
-            
-            Application.Quit();
+        Application.Quit();
 #endif
     }
 
     public void StartGame()
     {
-        SceneManager.GetActiveScene();
         mainMenuPanel.SetActive(false);
+        cutscenePanel.SetActive(true);
+        camRef.CamAudioSource.clip = null;
+        cutsceneVideoPlayer.Play();
+        Debug.Log("Playing intro cutscene");
+    }
+
+    private void OnCutsceneFinished(VideoPlayer vp)
+    {
+        cutscenePanel.SetActive(false);
         progressbar.SetActive(true);
         onGameStart?.Invoke();
-        Debug.Log("Pressed play");
+        Debug.Log("Cutscene finished, game started");
+    }
+
+    // Optional: let the player skip the cutscene
+    public void SkipCutscene()
+    {
+        cutsceneVideoPlayer.Stop();
+        OnCutsceneFinished(cutsceneVideoPlayer);
     }
 
     public void LoadScene(string sceneName)
@@ -57,7 +90,6 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         PauseMenuPanel.SetActive(false);
     }
-
 
     public void LoadNextScene()
     {
@@ -74,13 +106,13 @@ public class GameSceneManager : MonoBehaviour
     public void LoadControlsPanel()
     {
         mainMenuPanel.SetActive(false);
-        PauseMenuPanel.SetActive(false) ;
+        PauseMenuPanel.SetActive(false);
         ControlsPanel.SetActive(true);
     }
+
     public void BackButton()
     {
         ControlsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
-
 }
