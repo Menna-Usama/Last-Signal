@@ -1,10 +1,13 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
+
 public class LogUIDisplay : MonoBehaviour
 {
+    [SerializeField] private Text logText; // switched to legacy text to add font
 
-    [SerializeField]private TextMeshProUGUI logText;//write each manually
+    //[SerializeField]private TextMeshProUGUI logText;//write each manually
     [SerializeField]private CanvasGroup canvasGroup;
     [SerializeField]private float displyDuration = 3f;
     [SerializeField]private float fadeDuration = 1f;
