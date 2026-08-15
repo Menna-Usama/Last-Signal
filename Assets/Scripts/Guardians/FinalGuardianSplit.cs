@@ -4,12 +4,10 @@ public class FinalGuardianSplit : MonoBehaviour
 {
 
     private GuardianDeath guardianDeathScript;
-    public GameObject smallGuardian;
+    public GameObject smallGuardianMiddle;
+    public GameObject smallGuardianRight;
+    public GameObject smallGuardianLeft;
     private bool isSplit;
-    [SerializeField] private Vector3 rightGuardianPos;
-    [SerializeField] private Vector3 leftGuardianPos;
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,9 +29,9 @@ public class FinalGuardianSplit : MonoBehaviour
     {
         isSplit = true;
 
-        Instantiate(smallGuardian, transform.position, Quaternion.identity);
-        GameObject rightGuardian = Instantiate(smallGuardian, rightGuardianPos, Quaternion.identity);
-        GameObject leftGuardian = Instantiate(smallGuardian, leftGuardianPos, Quaternion.identity);
+        smallGuardianMiddle.SetActive(true);
+        smallGuardianRight.SetActive(true);
+        smallGuardianLeft.SetActive(true);
 
         Destroy(gameObject);
     }

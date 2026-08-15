@@ -4,6 +4,7 @@ using System;
 
 public class GuardianFire : MonoBehaviour
 {
+    private GuardianDeath guardianDeath;
     [SerializeField] private GameObject _guardianProjectile;
     [SerializeField] private float _horizontalFiringDistance = 6f;
     [SerializeField] private float _verticalFiringDistance = 6f;
@@ -16,13 +17,18 @@ public class GuardianFire : MonoBehaviour
 
     public static event Action onProjectileFired;
 
+    private void Awake()
+    {
+        guardianDeath = GetComponent<GuardianDeath>();
+
+    }
     private void OnEnable()
     {
-        GuardianDeath.OnGuardianDefeated += StopFiring;
+        guardianDeath.OnGuardianDefeated += StopFiring;
     }
     private void OnDisable()
     {
-        GuardianDeath.OnGuardianDefeated -= StopFiring;
+        guardianDeath.OnGuardianDefeated -= StopFiring;
     }
 
     void Start()

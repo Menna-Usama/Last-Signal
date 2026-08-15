@@ -9,7 +9,7 @@ public class GuardianDeath : MonoBehaviour
     public  bool _isDead = false;
     public int _hitsTaken;
     private Vulnerable vulnerableScript;
-    public static event Action OnGuardianDefeated;
+    public event Action OnGuardianDefeated;
 
     private void Awake()
     {
@@ -30,6 +30,7 @@ public class GuardianDeath : MonoBehaviour
         if (_isDead) return;
 
         _hitsTaken++;
+        Debug.Log("hits" +_hitsTaken);
 
         if (_hitsTaken >= guardianHealth)
         {

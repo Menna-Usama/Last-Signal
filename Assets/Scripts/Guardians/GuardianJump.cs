@@ -4,6 +4,8 @@ using System;
 
 public class GuardianJump : MonoBehaviour
 {
+    private GuardianDeath guardianDeath;
+
     [SerializeField] private float jumpHeight = 3f;
     [SerializeField] private float jumpDuration = 1f;
     [SerializeField] private float waitBeforeJump = 5f;   // matches Guardian Fire's Burst Duration
@@ -17,15 +19,17 @@ public class GuardianJump : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        guardianDeath = GetComponent<GuardianDeath>();
+
     }
 
     private void OnEnable()
     {
-        GuardianDeath.OnGuardianDefeated += StopJumping;
+        guardianDeath.OnGuardianDefeated += StopJumping;
     }
     private void OnDisable()
     {
-        GuardianDeath.OnGuardianDefeated -= StopJumping;
+        guardianDeath.OnGuardianDefeated -= StopJumping;
     }
 
     private void Start()

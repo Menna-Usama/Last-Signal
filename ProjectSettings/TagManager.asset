@@ -52,6 +52,9 @@ TagManager:
   - name: Enviroment_Decor
     uniqueID: 3573164765
     locked: 0
+  - name: blur
+    uniqueID: 1293442037
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

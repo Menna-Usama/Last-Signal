@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GuardianAnim : MonoBehaviour
 {
+    private GuardianDeath guardianDeath;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GuardianJump guardianJump;
@@ -14,9 +15,13 @@ public class GuardianAnim : MonoBehaviour
 
         GuardianFire.onProjectileFired += AttackAnim;
 
-        GuardianDeath.OnGuardianDefeated += PlayDeathAnim;
+        guardianDeath.OnGuardianDefeated += PlayDeathAnim;
     }
+    private void Awake()
+    {
+        guardianDeath = GetComponent<GuardianDeath>();
 
+    }
     private void OnDisable()
     {
         GuardianJump.OnGuardianJump -= PlayJumpAnim;
@@ -25,7 +30,7 @@ public class GuardianAnim : MonoBehaviour
 
         GuardianFire.onProjectileFired -= AttackAnim;
 
-        GuardianDeath.OnGuardianDefeated -= PlayDeathAnim;
+        guardianDeath.OnGuardianDefeated -= PlayDeathAnim;
 
     }
     private void Update()

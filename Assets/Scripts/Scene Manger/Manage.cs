@@ -7,21 +7,39 @@ public class Manage : MonoBehaviour
     private bool hasSpawnedInSeg2 = false;
     public bool HasSpawnedIn2 => hasSpawnedInSeg2;
 
-    private bool _isAdvancing = false; // prevents repeated triggering
+    //private bool _isAdvancing = false; // prevents repeated triggering
+
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        hasSpawnedInSeg2 = false;
+    }
+
 
     void Update()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         bool noGuardiansLeft = GameObject.FindGameObjectsWithTag("Guardian").Length == 0;
 
-        if (currentIndex == 3 && noGuardiansLeft)
+        if (currentIndex == 2 && noGuardiansLeft)
         {
             GameSceneManager.Instance.WinPanel.SetActive(true);
         }
-        else if (currentIndex != 3 && noGuardiansLeft && !_isAdvancing)
+        if (currentIndex != 2 && noGuardiansLeft && !hasSpawnedInSeg2)
         {
-            _isAdvancing = true;
+            //_isAdvancing = true;
             hasSpawnedInSeg2 = true;
+
             StartCoroutine(DelayBeforeSpawn());
         }
 
@@ -34,6 +52,7 @@ public class Manage : MonoBehaviour
     IEnumerator DelayBeforeSpawn()
     {
         yield return new WaitForSeconds(1);
+
         GameSceneManager.Instance.LoadNextScene();
     }
 }
