@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Guardian
   - SeeGuardian
+  - Seg2ChkPt
   layers:
   - Default
   - TransparentFX

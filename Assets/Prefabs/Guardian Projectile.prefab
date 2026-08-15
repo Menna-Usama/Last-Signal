@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea33932dd188f440855f5f1caea8375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianProjectile
-  _projectileSpd: 7
+  _projectileSpd: 10
   _knockBackForce: 10
 --- !u!50 &3404979647162783998
 Rigidbody2D:

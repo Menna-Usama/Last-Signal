@@ -1,22 +1,29 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Manage : MonoBehaviour
 {
+    private bool hasSpawnedInSeg2 = false;
+    public bool HasSpawnedIn2 => hasSpawnedInSeg2;
 
-    // Update is called once per frame
+    private bool _isAdvancing = false; // prevents repeated triggering
+
     void Update()
     {
 
-        if (SceneManager.GetActiveScene().buildIndex == 3 && GameObject.FindGameObjectsWithTag("Guardian").Length == 0)
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        bool noGuardiansLeft = GameObject.FindGameObjectsWithTag("Guardian").Length == 0;
+
+        if (currentIndex == 3 && noGuardiansLeft)
         {
             GameSceneManager.Instance.WinPanel.SetActive(true);
         }
-
-
-        if (SceneManager.GetActiveScene().buildIndex != 3 && GameObject.FindGameObjectsWithTag("Guardian").Length == 0)
+        else if (currentIndex != 3 && noGuardiansLeft && !_isAdvancing)
         {
-            GameSceneManager.Instance.LoadNextScene();
+            _isAdvancing = true;
+            hasSpawnedInSeg2 = true;
+            StartCoroutine(DelayBeforeSpawn());
         }
 
 
@@ -25,5 +32,11 @@ public class Manage : MonoBehaviour
             GameSceneManager.Instance.PauseMenuPanel.SetActive(true);
         }
 
+    }
+
+    IEnumerator DelayBeforeSpawn()
+    {
+        yield return new WaitForSeconds(1);
+        GameSceneManager.Instance.LoadNextScene();
     }
 }

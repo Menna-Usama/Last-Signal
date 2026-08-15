@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CameraFollowY : MonoBehaviour
 {
+    private CameraFollowY Instance;
+
     [Header("Target")]
     [SerializeField] private Transform _player;
 
@@ -21,6 +23,13 @@ public class CameraFollowY : MonoBehaviour
 
     private float _fixedZ;
     private Vector3 _velocity = Vector3.zero;
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
