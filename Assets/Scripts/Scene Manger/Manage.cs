@@ -15,11 +15,11 @@ public class Manage : MonoBehaviour
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         bool noGuardiansLeft = GameObject.FindGameObjectsWithTag("Guardian").Length == 0;
 
-        if (currentIndex == 3 && noGuardiansLeft)
+        if (currentIndex == 2 && noGuardiansLeft)
         {
             GameSceneManager.Instance.WinPanel.SetActive(true);
         }
-        else if (currentIndex != 3 && noGuardiansLeft && !_isAdvancing)
+        else if (currentIndex != 2 && noGuardiansLeft && !_isAdvancing)
         {
             _isAdvancing = true;
             hasSpawnedInSeg2 = true;

@@ -416,6 +416,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.2941177
       objectReference: {fileID: 0}
+    - target: {fileID: 1909055375640739456, guid: 9d654c826bb5f6e4fbd3a9c0b57a1921, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4437656895312290157, guid: 9d654c826bb5f6e4fbd3a9c0b57a1921, type: 3}
       propertyPath: m_LocalScale.x
       value: 35.605297
@@ -12714,6 +12718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states: []
+  currentIndex: 0
 --- !u!114 &448852355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12788,8 +12794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinalGuardianSplit
   smallGuardian: {fileID: 6282701025132946592, guid: 9d654c826bb5f6e4fbd3a9c0b57a1921, type: 3}
-  rightGuardianPos: {x: 0, y: 0, z: 0}
-  leftGuardianPos: {x: 0, y: 0, z: 0}
+  rightGuardianPos: {x: 40, y: 203, z: 0}
+  leftGuardianPos: {x: -40, y: 203, z: 0}
 --- !u!4 &461567130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4437656895312290157, guid: 9d654c826bb5f6e4fbd3a9c0b57a1921, type: 3}
@@ -15694,6 +15700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states: []
+  currentIndex: 0
 --- !u!114 &735390887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70965,6 +70973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states: []
+  currentIndex: 0
 --- !u!114 &1303734957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94081,6 +94091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
+  states: []
+  currentIndex: 0
 --- !u!114 &2120744063
 MonoBehaviour:
   m_ObjectHideFlags: 0
