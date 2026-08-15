@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
-public class VFXHandler : MonoBehaviour
+public class SfxVfxHandler : MonoBehaviour
 {
     [Header("SFX")]
-    [SerializeField] private AudioSource playerAudioSource;
-    [SerializeField] private AudioSource CamAudioSource;
+     private AudioSource playerAudioSource;
+     private AudioSource CamAudioSource;
 
     [SerializeField] private AudioClip gamePlayTheme;
 
@@ -18,7 +19,7 @@ public class VFXHandler : MonoBehaviour
 
 
     [Header("VFX")]
-    [SerializeField] private ParticleSystem shockWave;
+     private ParticleSystem shockWave;
 
     private void OnEnable()
     {
@@ -31,7 +32,27 @@ public class VFXHandler : MonoBehaviour
 
         Dash.OnPlayerDashed += PlayDashSound;
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindSceneReferences();
+    }
 
+    private void FindSceneReferences()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerAudioSource = player.GetComponent<AudioSource>();
+            shockWave = player.GetComponentInChildren<ParticleSystem>();
+        }
+
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+        if (cam != null)
+        {
+            CamAudioSource = cam.GetComponent<AudioSource>();
+        }
     }
 
     private void OnDisable()
@@ -56,21 +77,21 @@ public class VFXHandler : MonoBehaviour
     }
     private void PlayJumpSound()
     {
-        playerAudioSource.PlayOneShot(jumpSound, 1f);   
+        if (playerAudioSource != null) playerAudioSource.PlayOneShot(jumpSound, 1f);   
     }
     private void PlayDashSound()
     {
-        playerAudioSource.PlayOneShot(DashSound, 1f);
+        if (playerAudioSource != null) playerAudioSource.PlayOneShot(DashSound, 1f);
     }
     private void PlayGroundHitSound()
     {
-        playerAudioSource.PlayOneShot(HitTheGroundSound, 1f);
+        if (playerAudioSource != null) playerAudioSource.PlayOneShot(HitTheGroundSound, 1f);
     }
 
     // ======= VFX =======
     private void PlayShockwave()
     {
-        shockWave.Play();
+        if (shockWave != null) shockWave.Play();
     }
    
 }

@@ -9,7 +9,7 @@ public class Dash : MonoBehaviour
 
     private bool canDash = true;
     public bool isDashing; // public cus normalenemy uses it
-    [SerializeField, Range(0f, 30f)] private float _dashingPower = 10f;
+    [SerializeField, Range(0f, 20f)] private float _dashingPower = 10f;
     [SerializeField, Range(0f, 5f)] private float _dashingTime = 0.2f;
     [SerializeField, Range(0f, 5f)] private float _dashingCooldown = 1f;
     private float _lastDirection = 1f; // defaults to right if player hasn't moved yet

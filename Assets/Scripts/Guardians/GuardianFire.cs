@@ -90,4 +90,10 @@ public class GuardianFire : MonoBehaviour
         }
         return null;
     }
+    public void InterruptAttack()
+    {
+        StopAllCoroutines();
+        _isNextVertical = false; // reset pattern so it starts fresh horizontal next time
+        StartCoroutine(FiringLoop()); // restart the loop 
+    }
 }

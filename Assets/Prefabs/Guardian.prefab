@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6245413799638722345}
   - component: {fileID: 4960674433543085057}
   - component: {fileID: 2331306517460939221}
+  - component: {fileID: 2833140947503475152}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Guardian
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7950320164446702114, guid: ebfe40d0aa68f004bbc83e8b8f1b7ff2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.96862745}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -202,14 +203,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282701025132946592}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a795a2a55a0dba54daa7dbba075a80fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianJump
   jumpHeight: 3
   jumpDuration: 1
-  waitForJump: 0
+  waitBeforeJump: 5
+  waitAfterJump: 3
 --- !u!114 &717392009159468290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +227,9 @@ MonoBehaviour:
   _guardianProjectile: {fileID: 3038736680577547152, guid: b830aeb6fcba2354c9e6027508c3b94a, type: 3}
   _horizontalFiringDistance: 6
   _verticalFiringDistance: 6
-  _shootingInterval: 0.75
+  _shootingInterval: 1
+  _burstDuration: 4
+  _cooldownDuration: 5
 --- !u!114 &6245413799638722345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076350bbd1827f648b97a65c17dae20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianDeath
-  guardianHealth: 3
+  guardianHealth: 4
+  guardianAnim: {fileID: 4960674433543085057}
+  guardianFire: {fileID: 717392009159468290}
+  _isDead: 0
   _hitsTaken: 0
 --- !u!114 &4960674433543085057
 MonoBehaviour:
@@ -254,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GuardianAnim
   animator: {fileID: 5975631209076034133}
   spriteRenderer: {fileID: 1323557848418038550}
+  guardianJump: {fileID: 1909055375640739456}
 --- !u!114 &2331306517460939221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,3 +274,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11500d6c9c3556d41ad1e76a0e5e4f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnableGuardianJump
+--- !u!114 &2833140947503475152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282701025132946592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f527af746d050db4ea240adea4d6d1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuardianMovement
+  moveOffset: {x: 10, y: 0, z: 0}
+  moveSpeed: 5
+  waitTime: 11
+  guardianJump: {fileID: 1909055375640739456}

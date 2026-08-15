@@ -14,7 +14,7 @@ public class GuardianAnim : MonoBehaviour
 
         GuardianFire.onProjectileFired += AttackAnim;
 
-        
+        GuardianDeath.OnGuardianDefeated += PlayDeathAnim;
     }
 
     private void OnDisable()
@@ -25,6 +25,7 @@ public class GuardianAnim : MonoBehaviour
 
         GuardianFire.onProjectileFired -= AttackAnim;
 
+        GuardianDeath.OnGuardianDefeated -= PlayDeathAnim;
 
     }
     private void Update()
@@ -49,8 +50,13 @@ public class GuardianAnim : MonoBehaviour
     {
         animator.SetTrigger("Attack");
     }
+    public void PlayHurtAnim()
+    {
+        Debug.Log("PlayHurtAnim executing, setting Hurt trigger");
 
-    private void PlayDeathAnim()
+        animator.SetTrigger("Hurt");
+    }
+    public void PlayDeathAnim()
     {
         animator.SetTrigger("Death");
     }
