@@ -26,7 +26,7 @@ public class RespawnController : MonoBehaviour
 
 
 
-    private void Respawn()
+    public void Respawn()
     {
         player.transform.position = respawnPoint.position;
         isDead = false;

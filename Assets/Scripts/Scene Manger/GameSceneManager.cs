@@ -7,10 +7,11 @@ public class GameSceneManager : MonoBehaviour
     public static GameSceneManager Instance;
 
     [SerializeField] private GameObject mainMenuPanel;
-    [SerializeField] private GameObject PauseMenuPanel;
     [SerializeField] private GameObject DeathMenuPanel;
     [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject progressbar;
+    public  GameObject PauseMenuPanel;
+    public GameObject WinPanel;
 
 
     public static event Action onGameStart; 
@@ -68,7 +69,8 @@ public class GameSceneManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        PauseMenuPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
 
 

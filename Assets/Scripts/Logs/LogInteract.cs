@@ -14,6 +14,7 @@ public class LogInteract : MonoBehaviour
             Debug.Log("Read Log"); // to be an event connected with the ui manager.
 
             onLogInteract?.Invoke();
+            Debug.Log("Interacted");
         }
     }
 
