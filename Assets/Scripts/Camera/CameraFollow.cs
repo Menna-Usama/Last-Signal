@@ -21,9 +21,6 @@ public class CameraFollowY : MonoBehaviour
     [SerializeField] private float _minY = -10f;
     [SerializeField] private float _maxY = 10f;
 
-    [SerializeField] private bool _useLowerBound = true;
-    [SerializeField] private float _lowerBoundY;
-
     private float _fixedZ;
     private Vector3 _velocity = Vector3.zero;
     private void Awake()
@@ -45,11 +42,9 @@ public class CameraFollowY : MonoBehaviour
 
     void LateUpdate()
     {
-
         if (_player == null) return;
 
         float targetY = _player.position.y + _yOffset;
-
 
         if (_useYClamp)
         {

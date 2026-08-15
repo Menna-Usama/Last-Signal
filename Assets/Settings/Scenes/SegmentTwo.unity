@@ -2419,15 +2419,35 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1148103894}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
+      propertyPath: _maxY
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
+      propertyPath: _minY
+      value: 172.527
+      objectReference: {fileID: 0}
     - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1764533244}
     - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
       propertyPath: _yOffset
-      value: 12.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
+      propertyPath: _useYClamp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
+      propertyPath: _lowerBoundY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224564535738488490, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
+      propertyPath: _useStartXAsCenter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1447067479766872686, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
       propertyPath: m_Name
@@ -2439,7 +2459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377627307525420167, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.649994
+      value: 172.65
       objectReference: {fileID: 0}
     - target: {fileID: 8377627307525420167, guid: 35d0f02a605c8494695cfcb2f99b81af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -83287,7 +83307,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1564851878}
   - {fileID: 1764533244}
   - {fileID: 621989077}
   - {fileID: 1778306008}
@@ -110764,3 +110783,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1148103894}
+  - {fileID: 300475592}
