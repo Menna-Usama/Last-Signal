@@ -1,18 +1,20 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class GuardianFire : MonoBehaviour
 {
-
     [SerializeField] private GameObject _guardianProjectile;
     [SerializeField] private float _horizontalFiringDistance = 6f;
     [SerializeField] private float _verticalFiringDistance = 6f;
-    [SerializeField] private float _shootingInterval = 0.75f;
+    [SerializeField] private float _shootingInterval = 0.75f; // time between single shots during a burst
+    [SerializeField] private float _burstDuration = 4f;   // how long the guardian will keep firing
+    [SerializeField] private float _cooldownDuration = 5f; // how long it pauses between bursts
 
     private bool _isNextVertical = false;
+    public bool IsFiring { get; private set; }
 
-
-
+    public static event Action onProjectileFired;
 
     private void OnEnable()
     {
@@ -23,9 +25,6 @@ public class GuardianFire : MonoBehaviour
         GuardianDeath.OnGuardianDefeated -= StopFiring;
     }
 
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(FiringLoop());
@@ -40,20 +39,29 @@ public class GuardianFire : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(_shootingInterval);
+            IsFiring = true;
+            // Firing burst
+            float burstTimer = 0f;
+            while (burstTimer < _burstDuration)
+            {
+                yield return new WaitForSeconds(_shootingInterval);
+                burstTimer += _shootingInterval;
 
-            if (_isNextVertical)
-            {
-                FireVerticalPair();
+                if (_isNextVertical)
+                {
+                    FireVerticalPair();
+                }
+                else
+                {
+                    FireHorizontalPair();
+                }
+                _isNextVertical = !_isNextVertical;
             }
-            else if (!_isNextVertical)
-            {
-                FireHorizontalPair();
-            }
-            _isNextVertical = !_isNextVertical;
+
+            // Cooldown pause
+            yield return new WaitForSeconds(_cooldownDuration);
         }
     }
-
 
     private void FireHorizontalPair()
     {
@@ -64,7 +72,6 @@ public class GuardianFire : MonoBehaviour
     private void FireVerticalPair()
     {
         SpawnProjectile(Vector2.up, _verticalFiringDistance);
-        //SpawnProjectile(Vector2.down, _verticalFiringDistance); that just hits the platform so it's useless
     }
 
     private GameObject SpawnProjectile(Vector2 direction, float travelDistance)
@@ -76,6 +83,8 @@ public class GuardianFire : MonoBehaviour
 
             projScript.Launch(direction, travelDistance);
             Physics2D.IgnoreCollision(proj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+            onProjectileFired?.Invoke();
 
             return proj;
         }
