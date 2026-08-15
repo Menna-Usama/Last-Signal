@@ -5,7 +5,10 @@ public class LogInteract : MonoBehaviour
 {
     private bool isPlayerTouchLog;
 
-    public static event Action onLogInteract;
+    public static event Action onLogInteract;//not sure event is used anywhere
+    private bool _logCollected = false;
+    [SerializeField]private LogData logData; //LogData is the scriptable object
+
 
     private void Update()
     {
@@ -13,10 +16,20 @@ public class LogInteract : MonoBehaviour
         {
             onLogInteract?.Invoke();
             Debug.Log("Interacted");
+            Collect();
+            
         }
     }
 
+    private void Collect()
+    {
+        _logCollected = true;
+        LogManager.Instance.CollectLog(logData);
+        Debug.Log("log collected" + logData.logText + logData.logID);
 
+
+        //maybe add the glow effect here
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
