@@ -3965,6 +3965,7 @@ GameObject:
   - component: {fileID: 928080725}
   - component: {fileID: 928080724}
   - component: {fileID: 928080723}
+  - component: {fileID: 928080727}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Guardian
@@ -4200,6 +4201,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GuardianDeath
   guardianHealth: 3
   _hitsTaken: 0
+--- !u!114 &928080727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928080717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47386762c22ca87408c40b75ce447ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuardianAnim
+  animator: {fileID: 928080720}
+  spriteRenderer: {fileID: 928080718}
 --- !u!1 &992788379
 GameObject:
   m_ObjectHideFlags: 0
