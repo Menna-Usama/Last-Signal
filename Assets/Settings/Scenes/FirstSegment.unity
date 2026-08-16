@@ -2364,7 +2364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.4786, y: -49.660385}
+  m_AnchoredPosition: {x: -9.4786, y: -54}
   m_SizeDelta: {x: 856.257, y: 176.6645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488238318 stripped
@@ -3047,8 +3047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
-  states: []
-  currentIndex: 0
 --- !u!114 &698794978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6826,8 +6824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29046001b0228b942af5fe5f99e11935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformGroupController
-  states: []
-  currentIndex: 0
 --- !u!114 &1714757312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79395,6 +79391,10 @@ PrefabInstance:
       propertyPath: collectedLogs
       value: 
       objectReference: {fileID: 706615533}
+    - target: {fileID: 8722170624853195583, guid: 15107bbbbf7c4204ebc4e77344f4015d, type: 3}
+      propertyPath: displyDuration
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 654419375160515053, guid: 15107bbbbf7c4204ebc4e77344f4015d, type: 3}

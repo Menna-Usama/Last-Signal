@@ -98740,7 +98740,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 138342630}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 654419375160515053, guid: 15107bbbbf7c4204ebc4e77344f4015d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4303670164018563439, guid: 15107bbbbf7c4204ebc4e77344f4015d, type: 3}
       insertIndex: -1
@@ -100585,8 +100586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.7781, y: -2}
-  m_SizeDelta: {x: 341.0287, y: 92.773}
+  m_AnchoredPosition: {x: 4.7896, y: -12}
+  m_SizeDelta: {x: 551.6782, y: 153.5842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2043323741
 MonoBehaviour:
