@@ -11,8 +11,14 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] private GameObject DeathMenuPanel;
     [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject progressbar;
+
+
     [SerializeField] private GameObject cutscenePanel;
     [SerializeField] private VideoPlayer cutsceneVideoPlayer;
+
+    [SerializeField] private GameObject endingCutscenePanel;
+    [SerializeField] private VideoPlayer endingVideoPlayer;
+
     public GameObject PauseMenuPanel;
     public GameObject WinPanel;
 
@@ -34,17 +40,28 @@ public class GameSceneManager : MonoBehaviour
     private void OnEnable()
     {
         if (cutsceneVideoPlayer != null)
-        {
             cutsceneVideoPlayer.loopPointReached += OnCutsceneFinished;
-        }
+        
+
+
+
+        SceneManager.sceneLoaded += OnAnySceneLoaded;
     }
 
     private void OnDisable()
     {
         if (cutsceneVideoPlayer != null)
-        {
             cutsceneVideoPlayer.loopPointReached -= OnCutsceneFinished;
-        }
+
+    
+
+        SceneManager.sceneLoaded -= OnAnySceneLoaded;
+    }
+
+    private void OnAnySceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnAnySceneLoaded fired, calling FadeIn");
+        FadeController.Instance.FadeIn();
     }
 
     public void QuitGame()
@@ -73,28 +90,36 @@ public class GameSceneManager : MonoBehaviour
         Debug.Log("Cutscene finished, game started");
     }
 
-    // Optional: let the player skip the cutscene
-    public void SkipCutscene()
+    public void PlayEndingCutscene()
     {
-        cutsceneVideoPlayer.Stop();
-        OnCutsceneFinished(cutsceneVideoPlayer);
+        FadeController.Instance.FadeOut(() =>
+        {
+            progressbar.SetActive(false);
+            endingCutscenePanel.SetActive(true);
+            endingVideoPlayer.Play();
+            FadeController.Instance.FadeIn();
+        });
     }
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        PauseMenuPanel.SetActive(false);
+        FadeController.Instance.FadeOut(() => SceneManager.LoadScene(sceneName));
     }
 
     public void LoadNextScene()
     {
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextScene);
+        FadeController.Instance.FadeOut(() => SceneManager.LoadScene(nextScene));
+    }
+
+    public void ReloadScene()
+    {
+        string current = SceneManager.GetActiveScene().name;
+        FadeController.Instance.FadeOut(() =>
+        {
+            SceneManager.LoadScene(current);
+            PauseMenuPanel.SetActive(false);
+        });
     }
 
     public void LoadMainMenu()

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SfxVfxHandler : MonoBehaviour
 {
+    
     [Header("SFX")]
      private AudioSource playerAudioSource;
      public AudioSource CamAudioSource;
@@ -16,13 +17,17 @@ public class SfxVfxHandler : MonoBehaviour
     [SerializeField] private AudioClip DashSound;
 
     [SerializeField] private AudioClip CollectSound;
+    [SerializeField] private AudioClip hitEnemy;
 
 
     [Header("VFX")]
      private ParticleSystem shockWave;
 
+
     private void OnEnable()
     {
+      
+
         GameSceneManager.onGameStart += PlayGameplayTheme;
 
         Jump.OnPlayerJumped += PlayShockwave;
@@ -33,6 +38,20 @@ public class SfxVfxHandler : MonoBehaviour
         Dash.OnPlayerDashed += PlayDashSound;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        GameSceneManager.onGameStart -= PlayGameplayTheme;
+
+        Jump.OnPlayerJumped -= PlayShockwave;
+        Jump.OnPlayerJumped -= PlayJumpSound;
+
+        Jump.OnPlayerLanded -= PlayGroundHitSound;
+
+        Dash.OnPlayerDashed -= PlayDashSound;
+       
+
+
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -55,18 +74,9 @@ public class SfxVfxHandler : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void PlayEnemyHitSound()
     {
-        GameSceneManager.onGameStart -= PlayGameplayTheme;
-
-        Jump.OnPlayerJumped -= PlayShockwave;
-        Jump.OnPlayerJumped -= PlayJumpSound;
-
-        Jump.OnPlayerLanded -= PlayGroundHitSound;
-
-        Dash.OnPlayerDashed -= PlayDashSound;
-
-
+        if (playerAudioSource != null) playerAudioSource.PlayOneShot(hitEnemy, 1f);    
     }
     // ======== SFX =========
     private void PlayGameplayTheme()

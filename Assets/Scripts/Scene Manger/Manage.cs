@@ -7,8 +7,7 @@ public class Manage : MonoBehaviour
     private bool hasSpawnedInSeg2 = false;
     public bool HasSpawnedIn2 => hasSpawnedInSeg2;
 
-    //private bool _isAdvancing = false; // prevents repeated triggering
-
+    private bool hasTriggeredEnding = false; // NEW guard
 
     private void OnEnable()
     {
@@ -23,23 +22,22 @@ public class Manage : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         hasSpawnedInSeg2 = false;
+        hasTriggeredEnding = false; // reset on scene load 
     }
-
 
     void Update()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         bool noGuardiansLeft = GameObject.FindGameObjectsWithTag("Guardian").Length == 0;
 
-        if (currentIndex == 2 && noGuardiansLeft)
+        if (currentIndex == 2 && noGuardiansLeft && !hasTriggeredEnding)
         {
-            GameSceneManager.Instance.WinPanel.SetActive(true);
+            hasTriggeredEnding = true;
+            GameSceneManager.Instance.PlayEndingCutscene();
         }
         if (currentIndex != 2 && noGuardiansLeft && !hasSpawnedInSeg2)
         {
-            //_isAdvancing = true;
             hasSpawnedInSeg2 = true;
-
             StartCoroutine(DelayBeforeSpawn());
         }
 
@@ -52,7 +50,6 @@ public class Manage : MonoBehaviour
     IEnumerator DelayBeforeSpawn()
     {
         yield return new WaitForSeconds(1);
-
         GameSceneManager.Instance.LoadNextScene();
     }
 }

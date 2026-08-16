@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianProjectile
   _projectileSpd: 10
-  _knockBackForce: 10
+  _knockBackForce: 15
 --- !u!50 &3404979647162783998
 Rigidbody2D:
   serializedVersion: 5

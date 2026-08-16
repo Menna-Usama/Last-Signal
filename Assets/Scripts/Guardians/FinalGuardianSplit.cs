@@ -18,7 +18,7 @@ public class FinalGuardianSplit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (guardianDeathScript._hitsTaken == 1 && !isSplit)
+        if (guardianDeathScript._hitsTaken == 3 && !isSplit)
         {
             Split();
         }

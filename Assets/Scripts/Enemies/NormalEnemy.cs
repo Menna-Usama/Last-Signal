@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class NormalEnemy : MonoBehaviour
     private int _hitsTaken;
     private bool _isDefeated;
     private bool _isNextVertical = false;
+    public event Action onDefeated;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -9,6 +9,7 @@ TagManager:
   - Guardian
   - SeeGuardian
   - Seg2ChkPt
+  - Enemy
   layers:
   - Default
   - TransparentFX

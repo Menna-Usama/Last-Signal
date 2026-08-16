@@ -10,6 +10,7 @@ public class GuardianDeath : MonoBehaviour
     public int _hitsTaken;
     private Vulnerable vulnerableScript;
     public event Action OnGuardianDefeated;
+    public event Action onHitTaken;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class GuardianDeath : MonoBehaviour
     {
         if (_isDead) return;
 
+        onHitTaken?.Invoke();
         _hitsTaken++;
         Debug.Log("hits" +_hitsTaken);
 
