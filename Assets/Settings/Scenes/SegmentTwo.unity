@@ -288,7 +288,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2024,6 +2024,52 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &87219455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87219457}
+  - component: {fileID: 87219456}
+  m_Layer: 0
+  m_Name: RespawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &87219456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87219455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30092d306c6166c4b8f1d1121f0e8fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnController
+  respawnPoint: {fileID: 262392367}
+  player: {fileID: 205297242}
+--- !u!4 &87219457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87219455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1161.6283, y: 512.04834, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &98769504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2530,11 @@ MonoBehaviour:
   - type: 2
     stateObject: {fileID: 1464470666}
   currentIndex: 1
+--- !u!1 &205297242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3637200390256509223, guid: e085db06c17224646af4d0c9d206007c, type: 3}
+  m_PrefabInstance: {fileID: 876301325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &262392367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8450666047836491740, guid: eec1a7399a7baf54ea7a2cf525c49507, type: 3}
@@ -2716,7 +2767,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3551,6 +3602,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2204756490235599318, guid: cc5e6157c9c0c5b4fb9a8ce20e7c3ca9, type: 3}
   m_PrefabInstance: {fileID: 640140344}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &480216933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480216934}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480216934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480216933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1161.6283, y: 512.04834, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516774227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,7 +3923,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -48999,7 +49081,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -81630,8 +81712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4746b65bb7e0f6b43b669329f83c8309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlinkingPlatform
-  _blinkWait: 1
-  _appearWait: 2
+  _blinkWait: 3
+  _appearWait: 0.5
 --- !u!50 &1065355137
 Rigidbody2D:
   serializedVersion: 5
@@ -81688,7 +81770,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -83390,6 +83472,55 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1119805340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1119805342}
+  - component: {fileID: 1119805341}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1119805341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119805340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a2bca2c004c933140b6919e13d8c5ddc, type: 2}
+--- !u!4 &1119805342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119805340}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.0694401, y: 375.4637, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138596866
 GameObject:
   m_ObjectHideFlags: 0
@@ -83539,7 +83670,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -84573,8 +84704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4746b65bb7e0f6b43b669329f83c8309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlinkingPlatform
-  _blinkWait: 1
-  _appearWait: 2
+  _blinkWait: 3
+  _appearWait: 0.5
 --- !u!251 &1464470669
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -84604,7 +84735,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -98423,7 +98554,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -99063,7 +99194,7 @@ Transform:
   m_GameObject: {fileID: 1803561718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 141.3, z: 0}
+  m_LocalPosition: {x: 6.39, y: 144.6, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -99586,8 +99717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4746b65bb7e0f6b43b669329f83c8309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlinkingPlatform
-  _blinkWait: 1
-  _appearWait: 2
+  _blinkWait: 3
+  _appearWait: 0.5
 --- !u!50 &1973614676
 Rigidbody2D:
   serializedVersion: 5
@@ -99625,7 +99756,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -100745,7 +100876,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -111035,3 +111166,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1148103894}
   - {fileID: 300475592}
+  - {fileID: 480216934}
+  - {fileID: 87219457}
+  - {fileID: 1119805342}

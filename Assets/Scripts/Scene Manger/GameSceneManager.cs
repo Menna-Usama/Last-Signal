@@ -8,8 +8,9 @@ public class GameSceneManager : MonoBehaviour
     public static GameSceneManager Instance;
     [SerializeField] private SfxVfxHandler camRef;
     [SerializeField] private GameObject mainMenuPanel;
-    [SerializeField] private GameObject DeathMenuPanel;
     [SerializeField] private GameObject ControlsPanel;
+    [SerializeField] private GameObject ControlsPanelPause;
+
     [SerializeField] private GameObject progressbar;
 
 
@@ -124,6 +125,7 @@ public class GameSceneManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        ControlsPanelPause.SetActive(false);
         PauseMenuPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
@@ -131,13 +133,26 @@ public class GameSceneManager : MonoBehaviour
     public void LoadControlsPanel()
     {
         mainMenuPanel.SetActive(false);
-        PauseMenuPanel.SetActive(false);
         ControlsPanel.SetActive(true);
     }
+    public void LoadControlsPanelPause()
+    {
+        PauseMenuPanel.SetActive(false);
+        ControlsPanelPause.SetActive(true);
+    }
 
+    public void BackPauseButton()
+    {
+        ControlsPanel.SetActive(false);
+        PauseMenuPanel.SetActive(true);
+    }
     public void BackButton()
     {
         ControlsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+    }
+    public void Resume()
+    {
+        PauseMenuPanel.SetActive(false );
     }
 }

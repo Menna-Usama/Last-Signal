@@ -5,7 +5,11 @@ public class RespawnController : MonoBehaviour
     public static RespawnController Instance { get; private set; }
     public Transform respawnPoint;
     public GameObject player;
-    public bool isDead = false; // to be and event from the "lose" script, now just for testing the respawn system.
+    private void Start()
+    {
+    }
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -13,20 +17,21 @@ public class RespawnController : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
-    private void Update()
+    private void OnEnable()
     {
-        if (isDead)
-        {
-            Respawn();
-        }
+        FallDeath.OnPlayerLost += Respawn;
+    }
+    private void OnDisable()
+    {
+        FallDeath.OnPlayerLost -= Respawn;
+
     }
 
 
     public void Respawn()
     {
         player.transform.position = respawnPoint.position;
-        isDead = false;
+        //GameSceneManager.Instance.PauseMenuPanel.SetActive(false);
     }
 
 

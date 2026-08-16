@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class BlinkingPlatform : MonoBehaviour
 {
 
-    [SerializeField, Range(1, 10)] float _blinkWait = 2f;
-    [SerializeField, Range(1, 10)] float _appearWait = 2f;
+    [SerializeField, Range(0, 10)] float _blinkWait = 2f;
+    [SerializeField, Range(0, 10)] float _appearWait = 2f;
 
     private bool _isBlinking;
 

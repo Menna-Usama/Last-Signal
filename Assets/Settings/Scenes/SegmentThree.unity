@@ -511,6 +511,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1cdbf90548923459fd2cfc5f01a422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogUIDisplay
+--- !u!1 &132127405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132127407}
+  - component: {fileID: 132127406}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &132127406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132127405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a2bca2c004c933140b6919e13d8c5ddc, type: 2}
+--- !u!4 &132127407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132127405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.494814, y: 555.6986, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &137893850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204756490235599318, guid: cc5e6157c9c0c5b4fb9a8ce20e7c3ca9, type: 3}
@@ -731,7 +780,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1523,7 +1572,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2446,7 +2495,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11947,7 +11996,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -13513,7 +13562,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14370,6 +14419,7 @@ GameObject:
   - component: {fileID: 706952329}
   - component: {fileID: 706952328}
   - component: {fileID: 706952333}
+  - component: {fileID: 706952334}
   m_Layer: 0
   m_Name: FallingGroup_4
   m_TagString: Platform
@@ -14429,7 +14479,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15283,6 +15333,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28ebd5de3ea50d449c95359ee214e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+--- !u!114 &706952334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706952326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eea98d3ce95154880257d5ca097680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+  fallOffset: {x: 0, y: -2, z: 0}
+  moveSpeed: 2
 --- !u!4 &714049474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204756490235599318, guid: cc5e6157c9c0c5b4fb9a8ce20e7c3ca9, type: 3}
@@ -15308,6 +15372,7 @@ GameObject:
   - component: {fileID: 731708579}
   - component: {fileID: 731708578}
   - component: {fileID: 731708583}
+  - component: {fileID: 731708584}
   m_Layer: 0
   m_Name: FallingGroup_3
   m_TagString: Platform
@@ -15367,7 +15432,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15789,6 +15854,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28ebd5de3ea50d449c95359ee214e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+--- !u!114 &731708584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731708576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eea98d3ce95154880257d5ca097680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+  fallOffset: {x: 0, y: -2, z: 0}
+  moveSpeed: 2
 --- !u!114 &734464192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15894,53 +15973,6 @@ MonoBehaviour:
   - type: 3
     stateObject: {fileID: 731708576}
   currentIndex: 2
---- !u!1 &747457072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 747457074}
-  - component: {fileID: 747457073}
-  m_Layer: 0
-  m_Name: RespawnController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &747457073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747457072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30092d306c6166c4b8f1d1121f0e8fda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RespawnController
-  respawnPoint: {fileID: 0}
-  player: {fileID: 0}
-  isDead: 0
---- !u!4 &747457074
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747457072}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.76144, y: -5.67999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1195324718}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &795517267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204756490235599318, guid: cc5e6157c9c0c5b4fb9a8ce20e7c3ca9, type: 3}
@@ -69375,7 +69407,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -71347,7 +71379,6 @@ Transform:
   - {fileID: 2113443429}
   - {fileID: 551305176}
   - {fileID: 57585840}
-  - {fileID: 747457074}
   - {fileID: 1503490016}
   - {fileID: 2118807435}
   - {fileID: 648663741}
@@ -71519,6 +71550,7 @@ GameObject:
   - component: {fileID: 1305600331}
   - component: {fileID: 1305600330}
   - component: {fileID: 1305600335}
+  - component: {fileID: 1305600336}
   m_Layer: 0
   m_Name: FallingGroup_1
   m_TagString: Platform
@@ -71578,7 +71610,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -72708,6 +72740,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28ebd5de3ea50d449c95359ee214e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+--- !u!114 &1305600336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305600328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eea98d3ce95154880257d5ca097680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+  fallOffset: {x: 0, y: -2, z: 0}
+  moveSpeed: 2
 --- !u!1001 &1339720502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86683,7 +86729,7 @@ Transform:
   m_GameObject: {fileID: 1503490014}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.05, y: 148.51, z: 0}
+  m_LocalPosition: {x: 5.71, y: 152.1, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -86823,7 +86869,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -89118,7 +89164,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -89668,7 +89714,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -90503,7 +90549,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -91555,7 +91601,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -92093,6 +92139,7 @@ GameObject:
   - component: {fileID: 2032922174}
   - component: {fileID: 2032922173}
   - component: {fileID: 2032922178}
+  - component: {fileID: 2032922179}
   m_Layer: 0
   m_Name: FallingGroup_2
   m_TagString: Platform
@@ -92152,7 +92199,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -92816,6 +92863,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28ebd5de3ea50d449c95359ee214e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+--- !u!114 &2032922179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032922171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eea98d3ce95154880257d5ca097680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingPlatformCopy
+  fallOffset: {x: 0, y: -2, z: 0}
+  moveSpeed: 2
 --- !u!1 &2043425753
 GameObject:
   m_ObjectHideFlags: 0
@@ -92904,7 +92965,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -94584,7 +94645,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -97245,6 +97306,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[103].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 416442269744197963, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
     - target: {fileID: 1965832836559413999, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
       propertyPath: m_Size.y
       value: 249
@@ -100741,6 +100806,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6946902105627358992, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 5b201755eb1a7694b98029893aa6762a, type: 2}
     - target: {fileID: 7163522704676761246, guid: 5e47d00850dd47546b284d0e6a3ef4e2, type: 3}
       propertyPath: m_SortingLayer
       value: -2
@@ -100939,3 +101008,4 @@ SceneRoots:
   - {fileID: 1195324718}
   - {fileID: 88023739}
   - {fileID: 33028973}
+  - {fileID: 132127407}
