@@ -83,6 +83,8 @@ public class Jump : MonoBehaviour
     {
         if (_onGround || _jumpPhase < _maxAirJumps)
         {
+            bool isFirstJump = _onGround && _jumpPhase == 0;
+
             _jumpPhase += 1;
 
             _jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * _jumpHeight);
@@ -97,7 +99,10 @@ public class Jump : MonoBehaviour
             }
             _velocity.y += _jumpSpeed;
 
-            OnPlayerJumped?.Invoke();
+            if (isFirstJump)
+            {
+                OnPlayerJumped?.Invoke();
+            }
         }
     }
 }
